@@ -1,0 +1,15 @@
+import sqlite3
+con = sqlite3.connect('nh1.db')
+c = con.cursor()
+
+c.execute('create table employee ( empid text PRIMARY KEY,name text,salary text)')
+c.execute("insert into employee values ('001','nithya','20000')")
+c.execute("insert into employee values ('002','asritha','25000')")
+c.execute("insert into employee values ('003','harsha','30000')")
+c.execute("insert into employee values ('004','kavya','35000')")
+con.commit()
+c.execute('select * from employee ')
+data1=c.fetchall()
+print(data1)
+c.close()
+con.close()
